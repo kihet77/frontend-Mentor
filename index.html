@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fronted Mentor-01-Newsletter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="content" class="bg">
+        <section id="section-text">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul>
+                <li>Product discovery and building what matters</li>
+                <li>Measuring to ensure updates are a success</li>
+                <li>And much more!</li>
+            </ul>
+
+            <form action="" id="email" name="email">
+                <p>Email address</p>
+                <span class="err-message">Valid email required</span>
+                <input type="text" name="emailType" class="" placeholder="email@company.com" required oninput="validCheck(this)">
+                <a href="./popup.html">
+                    <button class="btn-desktop btn-default" onclick="getData()" type="button">Subscribe to monthly newsletter</button>
+                </a>
+                    
+            </form>
+        </section>
+        <section id="section-img"><img src="./img/illustration-sign-up-desktop.svg" alt=""></section>
+    </div>
+
+    <script>
+       const form = document.forms["email"]
+        function validCheck(el) {
+            const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]/;
+            const value = el.value
+            const input = form.emailType
+            const err = form.querySelector("span")
+
+
+            if(pattern.test(value)){
+                err.style.display = "hidden"
+                input.classList.remove("err-input")
+                console.log("정규식 일치")
+            }else{
+                err.style.display = "block"
+                input.classList.add("err-input")
+                console.log("정규식 불일치")
+                return false
+            }
+        }
+
+        function getData() {
+            if (!form.checkValidity()) { // checkValidity 폼의 유효성 검사를 해서 boolean 값 반환
+            form.reportValidity(); // reportValidity: 유효성 검사를 통과하지 못 한 input에 대해 report
+            return false;
+            }
+
+            return data
+        }
+    </script>
+
+
+</body>
+</html>
